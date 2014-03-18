@@ -23,9 +23,6 @@ public class Mängija {
 		}
 		else{
 			lives -= (int)(Math.random()*100 + 1);
-			if (lives < 1){
-				gameover();
-			}
 		}
 		
 		System.out.println("Elusid on Sul nüüd: " + lives);
@@ -34,9 +31,6 @@ public class Mängija {
 	
 	public int muudaElusid(int damage){
 		lives -= (int)(Math.random()* (damage * 10) + 1);
-		if (lives < 1){
-			gameover();
-		}
 		System.out.println("Elusid on Sul nüüd: " + lives);
 		return lives;
 		

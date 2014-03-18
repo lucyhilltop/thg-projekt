@@ -11,8 +11,11 @@ public class Vastane {
 
 		Scanner scan = new Scanner(System.in);
 		String sisend = scan.nextLine();
-
-		if (sisend.equals("s")) {
+		if (a.getLives() < 1){
+			return;
+		}
+		
+		else if (sisend.equals("s")) {
 			try {
 				TimeUnit.MILLISECONDS.sleep(700);
 			} catch (InterruptedException e) {
@@ -21,16 +24,16 @@ public class Vastane {
 			// Siin tuleb vastaselt elusid vähendada
 			if (a.getPiirkond() < 9) { // Tugevamad võitluses
 				elud -= (int) (Math.random() * 100 + 1);
-				System.out.println(elud);
 			} else { // Tugevamad koriluses
 				elud -= (int) (Math.random() * 75 + 1);
-				System.out.println(elud);
 			}
-
+			System.out.println("Vastase elud: " + elud);
 			if (elud > 0) {
 				// Kui esimese korraga vastane surma ei saanud, läheb mängijalt
 				// ka elusid maha
-				a.muudaElusid(damage);
+				if(a.muudaElusid(damage) < 1){
+					return;
+				}
 				System.out.println("Vastane pole veel surnud, mida teed? [Võitlemiseks vajuta [S], põgenemiseks [E]]");
 				võitlus(a);
 			} else {
