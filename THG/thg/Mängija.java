@@ -2,7 +2,7 @@ package thg;
 
 public class Mängija {
 	
-	int lives = 100;
+	int lives;
 	String nimi;
 	int piirkond;
 	int päev;
