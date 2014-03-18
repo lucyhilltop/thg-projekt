@@ -25,6 +25,8 @@ public class Mängija {
 				gameover();
 			}
 		}
+		
+	//blahblahblablablhab
 		System.out.println("Elusid on Sul nüüd: " + lives);
 		return lives;
 	}
