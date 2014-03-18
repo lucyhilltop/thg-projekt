@@ -1,8 +1,7 @@
 package thg;
 
 public class Kaastribuut extends Vastane{
-	int elud;
-	int damage;
+
 	public Kaastribuut(int elud, int damage) {
 		this.elud = elud;
 		this.damage = damage;

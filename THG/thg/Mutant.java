@@ -1,9 +1,7 @@
 package thg;
 
 public class Mutant extends Vastane{
-	int elud;
-    int damage;
-    
+
     public Mutant() {
     	elud = 120;
     	damage = 8;

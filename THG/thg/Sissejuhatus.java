@@ -1,16 +1,12 @@
 package thg;
 
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.Scanner;
-
 public class Sissejuhatus {
 
 	public static void main(String[] args) {
 		String nimi = args[0];
 		int piirkond = Integer.parseInt(args[1]);
 		Mängija mängija = new Mängija(nimi, piirkond);
-		int päev = 0;
+		boolean kas_elus = true;
 		// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
 		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n"
 				+ "Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n"
@@ -35,9 +31,10 @@ public class Sissejuhatus {
 				+ "Or should I say, May the odds be ever in your favour. \n\n ";
 
 		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);
-		mängija.juhtumid(päev);
-		mängija.juhtumid(päev);
-		mängija.juhtumid(päev);
+		while (kas_elus){
+			kas_elus = mängija.juhtumid();
+		}
+		mängija.gameover();
 
 	}
 

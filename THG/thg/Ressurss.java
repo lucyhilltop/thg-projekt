@@ -25,11 +25,11 @@ public class Ressurss{
 			if (juh<=5){
 
 			System.out.println("Enesetunne läheb kehvaks...");
-			a.lives1("-",a.getLives());
+			a.muudaElusid("-");
 			 }
 			else{ 
 				System.out.printf("Täitsa maitsev mari ju..enesetunne läheb tükk maad paremaks\n");
-				a.lives1("+", a.getLives());
+				a.muudaElusid("+");
 			}
 			}
 
@@ -46,6 +46,6 @@ public class Ressurss{
 		
 		String asi =valik[randomno.nextInt(valik.length)];
 		System.out.println("Märkad taevast langevat väikest langevarju, mis maandub sinust veidi eema. Korjad selle üles ja avad pakendi. Sees on: -" + asi);
-		a.lives1("+", a.getLives());
+		a.muudaElusid("+");
 	}
 }

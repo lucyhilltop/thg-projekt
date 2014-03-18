@@ -5,14 +5,16 @@ public class Mängija {
 	int lives = 100;
 	String nimi;
 	int piirkond;
+	int päev;
 	
 	public Mängija(String nimi, int piirkond) {
 		this.lives = 100;
 		this.nimi = nimi;
 		this.piirkond = piirkond;
+		päev = 0;
 	}
 	
-	public int lives1(String a, int lives){
+	public int muudaElusid(String a){
 		if (a=="+"){
 			lives += (int)(Math.random()*50 +1);
 			if(lives > 150){
@@ -30,8 +32,8 @@ public class Mängija {
 		return lives;
 	}
 	
-	public int lives1(int lives, int damage){
-		lives =- (int)(Math.random()* (damage * 10) + 1);
+	public int muudaElusid(int damage){
+		lives -= (int)(Math.random()* (damage * 10) + 1);
 		if (lives < 1){
 			gameover();
 		}
@@ -40,21 +42,11 @@ public class Mängija {
 		
 	}
 	
-	public int päevad(int a){
-		System.out.println("Seekord õnnestus sul päev üle elada.. ");
-		a += 1;
-		if (a== 5){
-			gameover(a);
-		}
-		return a;
-	}
-	
 	public void gameover(){
-		System.out.println("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
-	}
-	
-	public void gameover(int a){
-		System.out.println("JESS!! SINA oledki uusim Näljamängude võitja!");
+		if (lives < 1)
+			System.out.println("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
+		else
+			System.out.println("JESS!! SINA oledki uusim Näljamängude võitja!");
 	}
 	
 	public void sammude_kirjeldus(int h, int v){
@@ -171,7 +163,7 @@ public class Mängija {
 		
 	}
 	
-	public void juhtumid(int päevad){
+	public boolean juhtumid(){
 		int juhtum = (int)(Math.random()*5+1);
 		if (juhtum == 1){
 			Mutant m = new Mutant();
@@ -185,13 +177,14 @@ public class Mängija {
 			Kaastribuut k = new Kaastribuut(80,6);
 			k.võitlus_tribuudiga(this);
 		}
-		else if (juhtum ==4){
-			päevad(päevad);
+		else if (juhtum == 4){
+			päev ++;
 		}
 		else{
 			Ressurss l = new Ressurss();
 			l.langevari(this);
 		}
+		return lives > 0 && päev != 5;
 	}
 	
 	int getLives() {

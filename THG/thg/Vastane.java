@@ -20,24 +20,21 @@ public class Vastane {
 			}
 			// Siin tuleb vastaselt elusid vähendada
 			if (a.getPiirkond() < 9) { // Tugevamad võitluses
-				elud = -(int) (Math.random() * 100 + 1);
+				elud -= (int) (Math.random() * 100 + 1);
 				System.out.println(elud);
 			} else { // Tugevamad koriluses
-				elud = -(int) (Math.random() * 75 + 1);
+				elud -= (int) (Math.random() * 75 + 1);
 				System.out.println(elud);
 			}
 
 			if (elud > 0) {
 				// Kui esimese korraga vastane surma ei saanud, läheb mängijalt
 				// ka elusid maha
-				a.lives1(a.getLives(), damage);
-				System.out.println("Elusid on sul nüüd: " + a.getLives());
-				System.out
-						.println("Vastane pole veel surnud, mida teed? [Võitlemiseks vajuta [S], põgenemiseks [E]]");
+				a.muudaElusid(damage);
+				System.out.println("Vastane pole veel surnud, mida teed? [Võitlemiseks vajuta [S], põgenemiseks [E]]");
 				võitlus(a);
 			} else {
-				System.out
-						.println("Wohoo! Sinu võit, vastane sai surma, aga Sina jäid ellu.");
+				System.out.println("Wohoo! Sinu võit, vastane sai surma, aga Sina jäid ellu.");
 				System.out.println("Elusid on sul nüüd: " + a.getLives());
 
 			}
@@ -47,8 +44,7 @@ public class Vastane {
 			System.out
 					.println("Jooksed elu eest peitu. Võid pääseda terve nahaga, kuid vastane võib sind ka selja tagant rünnata.");
 			// Võid pääseda terve nahaga, kuid vastane võib sind ka jälitada
-			a.lives1("-", a.getLives());
-			System.out.println("Elusid on sul nüüd: " + a.getLives());
+			a.muudaElusid("-");
 		}
 	}
 
