@@ -33,6 +33,7 @@ public class Sissejuhatus {
 		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);
 		while (kas_elus){
 			kas_elus = mängija.juhtumid();
+			System.out.println("\n");
 		}
 		mängija.gameover();
 

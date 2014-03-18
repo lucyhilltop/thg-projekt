@@ -172,6 +172,7 @@ public class Mängija {
 			k.võitlus_tribuudiga(this);
 		}
 		else if (juhtum == 4){
+			System.out.println("Sul õnnestus end hoolikalt varjates päev üle elada..");
 			päev ++;
 		}
 		else{

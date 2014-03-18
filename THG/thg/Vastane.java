@@ -47,7 +47,7 @@ public class Vastane {
 			System.out
 					.println("Jooksed elu eest peitu. Võid pääseda terve nahaga, kuid vastane võib sind ka selja tagant rünnata.");
 			// Võid pääseda terve nahaga, kuid vastane võib sind ka jälitada
-			a.muudaElusid("-");
+			a.muudaElusid(damage);
 		}
 	}
 
