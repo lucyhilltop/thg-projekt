@@ -1,22 +1,22 @@
 package thg;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
-
 public class Sissejuhatus {
-	
+
 	public static void main(String[] args) {
 		String nimi = args[0];
 		int piirkond = Integer.parseInt(args[1]);
 		Mängija mängija = new Mängija(nimi, piirkond);
+		int päev = 0;
 		// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
-		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n" + 
-				"Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n" + 
-				"\r\n" + 
-				"Now.. to why you, ";
-		String keskmine_osa = ", are here today. The 73rd Hunger games are about to begin.\r\n" + 
-				"And Your name was reaped from the ";
+		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n"
+				+ "Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n"
+				+ "\r\n" + "Now.. to why you, ";
+		String keskmine_osa = ", are here today. The 73rd Hunger games are about to begin.\r\n"
+				+ "And Your name was reaped from the ";
 		String lopp = "'th district. Now how does that make you feel? \n"
 				+ "Oh, enough about that. \n"
 				+ "Why don't we describe the arena to you instead while you're standing on that platform, \n"
@@ -33,11 +33,11 @@ public class Sissejuhatus {
 				+ "and tributes from districts 9-12 have a slight edge in finding edible food. \n\n"
 				+ "Hope you know what you're going to do next. Good luck! \n"
 				+ "Or should I say, May the odds be ever in your favour. \n\n ";
-		
-		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);	
-			Mängija.juhtumid(mängija);
-			Mängija.juhtumid(mängija);
-			Mängija.juhtumid(mängija);
+
+		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);
+		mängija.juhtumid(päev);
+		mängija.juhtumid(päev);
+		mängija.juhtumid(päev);
 
 	}
 

@@ -26,7 +26,6 @@ public class Mängija {
 			}
 		}
 		
-	//blahblahblablablhab
 		System.out.println("Elusid on Sul nüüd: " + lives);
 		return lives;
 	}
@@ -172,19 +171,26 @@ public class Mängija {
 		
 	}
 	
-	public void juhtumid(Mängija a){
-		int juhtum = (int)(Math.random()*4+1);
+	public void juhtumid(int päevad){
+		int juhtum = (int)(Math.random()*5+1);
 		if (juhtum == 1){
-			Mutant.võitlus_mutandiga(a);
+			Mutant m = new Mutant();
+			m.võitlus_mutandiga(this);
 		}
 		else if (juhtum == 2){
-			Ressurss.metsamari(a);
+			Ressurss r = new Ressurss();
+			r.metsamari(this);
 		}
 		else if (juhtum == 3){
-			Kaastribuut.võitlus_tribuudiga(a);
+			Kaastribuut k = new Kaastribuut(80,6);
+			k.võitlus_tribuudiga(this);
+		}
+		else if (juhtum ==4){
+			päevad(päevad);
 		}
 		else{
-			Ressurss.langevari(a);
+			Ressurss l = new Ressurss();
+			l.langevari(this);
 		}
 	}
 	
