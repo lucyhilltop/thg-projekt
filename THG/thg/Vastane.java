@@ -50,6 +50,11 @@ public class Vastane {
 			a.muudaElusid(damage);
 			return;
 		}
+		
+		else{
+			System.out.println("Oioi, vajutasid midagi valesti, proovi uuesti");
+			võitlus(a);
+		}
 	}
 
 }

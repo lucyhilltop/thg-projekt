@@ -36,6 +36,10 @@ public class Liikumine {
 		else if (myline.equals("l")) {
 			h = h+1;	
 		}
+		else{
+			System.out.println("Oioi, vajutasid midagi valesti, proovi uuesti");
+			liikumine();
+		}
 	}
 
 	public void sammude_kirjeldus(){

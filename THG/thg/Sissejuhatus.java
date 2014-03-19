@@ -32,11 +32,11 @@ public class Sissejuhatus {
 				+ "Or should I say, May the odds be ever in your favour. \n\n ";
 
 		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);
-		käimine.liikumine();
+
 		while (kas_elus){
-			kas_elus = mängija.juhtumid();
-			System.out.println();
 			käimine.liikumine();
+			System.out.println();
+			kas_elus = mängija.juhtumid();
 			System.out.println("\n");
 		}
 		mängija.gameover();
