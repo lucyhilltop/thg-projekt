@@ -39,15 +39,16 @@ public class Vastane {
 			} else {
 				System.out.println("Wohoo! Sinu võit, vastane sai surma, aga Sina jäid ellu.");
 				System.out.println("Elusid on sul nüüd: " + a.getLives());
+				return;
 
 			}
 		}
 
 		else if (sisend.equals("e")) {
-			System.out
-					.println("Jooksed elu eest peitu. Võid pääseda terve nahaga, kuid vastane võib sind ka selja tagant rünnata.");
+			System.out.println("Jooksed elu eest peitu. Võid pääseda terve nahaga, kuid vastane võib sind ka selja tagant rünnata.");
 			// Võid pääseda terve nahaga, kuid vastane võib sind ka jälitada
 			a.muudaElusid(damage);
+			return;
 		}
 	}
 

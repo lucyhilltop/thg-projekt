@@ -7,8 +7,7 @@ public class Sissejuhatus {
 		int piirkond = Integer.parseInt(args[1]);
 		Mängija mängija = new Mängija(nimi, piirkond);
 		boolean kas_elus = true;
-		int h = 0;
-		int v= 0;
+		Liikumine käimine = new Liikumine();
 		// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
 		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n"
 				+ "Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n"
@@ -33,8 +32,11 @@ public class Sissejuhatus {
 				+ "Or should I say, May the odds be ever in your favour. \n\n ";
 
 		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);
+		käimine.liikumine();
 		while (kas_elus){
 			kas_elus = mängija.juhtumid();
+			System.out.println();
+			käimine.liikumine();
 			System.out.println("\n");
 		}
 		mängija.gameover();
