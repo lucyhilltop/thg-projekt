@@ -158,8 +158,15 @@ public class Mängija {
 	}
 	
 	public boolean juhtumid(){
-		int juhtum = (int)(Math.random()*5+1);
-		if (juhtum == 1){
+		int juhtum = (int)(Math.random()*6+1);
+		int ebaõnn = (int)(Math.random()*100 +1);
+		
+		if (ebaõnn == 13){
+			Ressurss v = new Ressurss();
+			v.vulkaan();
+			lives = 0;
+		}
+		else if (juhtum == 1){
 			Mutant m = new Mutant();
 			m.võitlus_mutandiga(this);
 		}
@@ -181,6 +188,8 @@ public class Mängija {
 		}
 		return lives > 0 && päev != 5;
 	}
+	
+		
 	
 	int getLives() {
 		return lives;

@@ -7,6 +7,8 @@ public class Sissejuhatus {
 		int piirkond = Integer.parseInt(args[1]);
 		Mängija mängija = new Mängija(nimi, piirkond);
 		boolean kas_elus = true;
+		int h = 0;
+		int v= 0;
 		// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
 		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n"
 				+ "Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n"

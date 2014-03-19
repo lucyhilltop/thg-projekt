@@ -48,4 +48,16 @@ public class Ressurss{
 		System.out.println("Märkad taevast langevat väikest langevarju, mis maandub sinust veidi eema. Korjad selle üles ja avad pakendi. Sees on: -" + asi);
 		a.muudaElusid("+");
 	}
+	
+	public void vulkaan(){
+		System.out.println("Sa kuuled selja tagant tohutult valju plahvatust.");
+		try{
+			TimeUnit.MILLISECONDS.sleep(1300);
+		}
+		catch (InterruptedException e){
+			System.out.println("");;
+		}
+		System.out.println("ümber pöörates saad aru, et vulkaan on hakanud purskama.\n Viie sekundi jooksul kattud kuuma tuhaga.\n "
+				+ "Mängumeistritel sai sust kõrini.\n Game Over.");
+	}
 }
