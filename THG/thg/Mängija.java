@@ -14,6 +14,7 @@ public class Mängija {
 		päev = 0;
 	}
 	
+//Elude maha (ja juurdelisamise) meetodid
 	public int muudaElusid(String a){
 		if (a=="+"){
 			lives += (int)(Math.random()*50 +1);
@@ -36,6 +37,7 @@ public class Mängija {
 		
 	}
 	
+	//Mängu lõpu kirjeldused
 	public void gameover(){
 		if (lives < 1)
 			System.out.println("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
@@ -43,6 +45,7 @@ public class Mängija {
 			System.out.println("JESS!! SINA oledki uusim Näljamängude võitja!");
 	}
 		
+	//boolean, et teaks, kas mäng on läbi või mitte. Aga see meetod genereerib siis randomly erinevaid juhtumeid, mida mängija läbida saab.
 	public boolean juhtumid(){
 		int juhtum = (int)(Math.random()*6+1);
 		int ebaõnn = (int)(Math.random()*100 +1);

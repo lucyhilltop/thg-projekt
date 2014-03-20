@@ -16,32 +16,33 @@ public class Liikumine {
 
 	public void liikumine (){
 		sammude_kirjeldus();
-
 		Scanner sisend = new  Scanner(System.in);
 		String myline=sisend.nextLine();
 
+		//Üles
 		if (myline.equals("i")) {
 			v++;
 		}
-
+		//Alla
 		else if (myline.equals("k")){	
 			v--;
 
 		}
-
+		//Vasakule
 		else if (myline.equals("j")){	
 			h--;
 		}
-
+		//Paremale
 		else if (myline.equals("l")) {
 			h = h+1;	
 		}
+		//Kui vale nupu vajutad
 		else{
 			System.out.println("Oioi, vajutasid midagi valesti, proovi uuesti");
 			liikumine();
 		}
 	}
-
+//Kirjeldab iga sammu kohal, kuhu sa edasi minna saad
 	public void sammude_kirjeldus(){
 		System.out.println("LIIGU EDASI");
 		if (h==1){

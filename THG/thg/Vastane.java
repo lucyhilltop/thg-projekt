@@ -21,7 +21,7 @@ public class Vastane {
 			} catch (InterruptedException e) {
 				System.out.println("");
 			}
-			// Siin tuleb vastaselt elusid vähendada
+			// Mängija annab alati esimese hoobi, siin lähevad vastasel elud maha
 			if (a.getPiirkond() < 9) { // Tugevamad võitluses
 				elud -= (int) (Math.random() * 100 + 1);
 			} else { // Tugevamad koriluses
@@ -36,7 +36,9 @@ public class Vastane {
 				}
 				System.out.println("Vastane pole veel surnud, mida teed? [Võitlemiseks vajuta [S], põgenemiseks [E]]");
 				võitlus(a);
-			} else {
+			} 
+			//Printimine teeb siinse kirjelduse üsna liiaseks
+			else {
 				System.out.println("Wohoo! Sinu võit, vastane sai surma, aga Sina jäid ellu.");
 				System.out.println("Elusid on sul nüüd: " + a.getLives());
 				return;

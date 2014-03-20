@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Ressurss{
 
+	//Puudub veel see, et piirkondadest 9-12 mängijatel rohkem veaks, aga mul tuli see nüüd viimasel hetkel alles meelde
 	public void metsamari(Mängija a) {
 		double juh=Math.random()*10+1;
 		System.out.printf("Ühel põõsal kasvavad isuäratavad valged marjad. Sa pole selliseid varem näinud ja see ei tundu olevat nende loomulik kasvukoht.\n "
@@ -36,14 +37,14 @@ public class Ressurss{
 		else if (sisend.equals("e")) {
 			System.out.println("Liigud edasi");
 		}
-		
+		//Valele nupule vajutamise juhtum
 		else{
 			System.out.println("Oioi, vajutasid midagi valesti, proovi uuesti");
 			metsamari(a);
 		}
 
 	}
-
+//Väiksed langevarjukesed, mida sponsorid enda lemmikutele saadavad, et neid mängudes aidata
 	public void langevari(Mängija a) {
 		Random randomno=new Random();
 		String [] valik = {"energiajook", "pakk tuletikke", "nuga"};
@@ -52,7 +53,7 @@ public class Ressurss{
 		System.out.println("Märkad taevast langevat väikest langevarju, mis maandub sinust veidi eema. Korjad selle üles ja avad pakendi. Sees on: -" + asi);
 		a.muudaElusid("+");
 	}
-
+//Huvitav meetod, kuna vulkaan on mängukirjelduses iseenesest olemas, peab olema ka võimalus selle purskamiseks 
 	public void vulkaan(){
 		System.out.println("Sa kuuled selja tagant tohutult valju plahvatust.");
 		try{
