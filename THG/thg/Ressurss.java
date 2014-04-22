@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Ressurss{
 
 	//Puudub veel see, et piirkondadest 9-12 mängijatel rohkem veaks, aga mul tuli see nüüd viimasel hetkel alles meelde
-	public void metsamari(Mängija a) {
+	public void metsamari(Mangija a) {
 		double juh=Math.random()*10+1;
 		System.out.printf("Ühel põõsal kasvavad isuäratavad valged marjad. Sa pole selliseid varem näinud ja see ei tundu olevat nende loomulik kasvukoht.\n "
 				+ "Proovid marju -vajuta [S].\n Lähed edasi - vajuta [E].\n ");
@@ -45,7 +45,7 @@ public class Ressurss{
 
 	}
 //Väiksed langevarjukesed, mida sponsorid enda lemmikutele saadavad, et neid mängudes aidata
-	public void langevari(Mängija a) {
+	public void langevari(Mangija a) {
 		Random randomno=new Random();
 		String [] valik = {"energiajook", "pakk tuletikke", "nuga"};
 

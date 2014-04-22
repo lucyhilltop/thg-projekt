@@ -51,8 +51,8 @@ public class Liikumine {
 				System.out.println("  KÜLLUSESARV [j] [l] METS");
 			}
 			else if (v==-2){
-				System.out.println("    METS [i] [k] EI SAA KÄIA, SIIN ON AREENI PIIR");
-				System.out.println(" ORUPÕHI [j] [l] METS");
+				System.out.println("           METS [i] [k] EI SAA KÄIA, SIIN ON AREENI PIIR");
+				System.out.println("SÜGAV ORG JÕEGA [j] [l] METS");
 			}
 			else if (v==-1){
 				System.out.println("   METS [i] [k] METS ");

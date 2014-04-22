@@ -5,9 +5,9 @@ public class Sissejuhatus {
 	public static void main(String[] args) {
 		String nimi = args[0];
 		int piirkond = Integer.parseInt(args[1]);
-		Mängija mängija = new Mängija(nimi, piirkond);
+		Mangija mangija = new Mangija(nimi, piirkond);
 		boolean kas_elus = true;
-		Liikumine käimine = new Liikumine();
+		Liikumine kaimine = new Liikumine();
 		// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
 		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n"
 				+ "Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n"
@@ -34,12 +34,12 @@ public class Sissejuhatus {
 		System.out.println(esimene_pool + nimi + keskmine_osa + piirkond + lopp);
 
 		while (kas_elus){
-			käimine.liikumine();
+			kaimine.liikumine();
 			System.out.println();
-			kas_elus = mängija.juhtumid();
+			kas_elus = mangija.juhtumid();
 			System.out.println("\n");
 		}
-		mängija.gameover();
+		mangija.gameover();
 
 	}
 

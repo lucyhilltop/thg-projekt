@@ -12,10 +12,10 @@ public class Mutant extends Vastane{
 		this.damage = damage;
 	}
     
-	public void võitlus_mutandiga (Mängija a){
+	public void võitlus_mutandiga (Mangija a){
 		
 		System.out.println("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja kole mutant. Mida teed? \n"
 				+ "[Võitlemiseks vajuta [S], põgenemiseks [E]]");
-		võitlus(a);
+		voitlus(a);
 	}
 }

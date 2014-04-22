@@ -7,7 +7,7 @@ public class Vastane {
 	int elud;
 	int damage;
 
-	public void võitlus(Mängija a) {
+	public void voitlus(Mangija a) {
 
 		Scanner scan = new Scanner(System.in);
 		String sisend = scan.nextLine();
@@ -35,7 +35,7 @@ public class Vastane {
 					return;
 				}
 				System.out.println("Vastane pole veel surnud, mida teed? [Võitlemiseks vajuta [S], põgenemiseks [E]]");
-				võitlus(a);
+				voitlus(a);
 			} 
 			//Printimine teeb siinse kirjelduse üsna liiaseks
 			else {
@@ -55,7 +55,7 @@ public class Vastane {
 		
 		else{
 			System.out.println("Oioi, vajutasid midagi valesti, proovi uuesti");
-			võitlus(a);
+			voitlus(a);
 		}
 	}
 

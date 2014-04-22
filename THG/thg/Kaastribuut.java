@@ -12,10 +12,10 @@ public class Kaastribuut extends Vastane{
 		this.damage = 6;
 	}
 
-	public void võitlus_tribuudiga (Mängija a){
+	public void võitlus_tribuudiga (Mangija a){
 		System.out.println("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja Sinu kaasvõistleja. Mida teed? \n"
 				+ "[Võitlemiseks vajuta [S], põgenemiseks [E]]");
-		võitlus(a);
+		voitlus(a);
 	}
 }
 
