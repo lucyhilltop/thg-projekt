@@ -9,12 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -26,7 +31,7 @@ public class Mang extends Application {
 	private final Canvas canvas = new Canvas(400,400);
 	private Canvas nood = new Canvas(400,325);
 
-	//Et mängu alguses oleks õige taust taga
+	//Et m?ngu alguses oleks ?ige taust taga
 	public Mang(){
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(cornucopia, 0.0, 0.0, canvas.getHeight(),
@@ -42,13 +47,18 @@ public class Mang extends Application {
 
 	//layout
 	BorderPane piir = new BorderPane();
-	//gruppi pole vaja, borderpane läheb stseenile
+	
+	//gruppi pole vaja, borderpane l?heb stseenile
 	Group juur= new Group();
 
 	boolean isgameover = false;
-	//tekstiväli
+	//tekstiv?li
 	
-	//ekraani laius ja kõrgus
+	Text tkoht= new Text(" kirjeldus"
+			+ "tralalalaa"
+			+ "blballbaba \n"
+			+  "uiuiuuiiu");
+	//ekraani laius ja k?rgus
 	double width = canvas.getWidth();
 	double height = canvas.getHeight();
 	
@@ -67,140 +77,151 @@ public class Mang extends Application {
 	//Kirjeldab iga sammu kohal, kuhu sa edasi minna saad ja tekitab tausta
 	ImageView kohapilt = new ImageView();
 	public void sammude_kirjeldus(){
-		System.out.println("LIIGU EDASI");
+		tkoht.setText("LIIGU EDASI");
 		if (h==1){
 			if (v==0){
 				taustauuendus(mets);
-				System.out.println("VULKAANIJALAM [ÜLES] [ALLA] SÜGAV ORG JÕEGA");
-				System.out.println("  KÜLLUSESARV [VASAKULE] [PAREMALE] METS");
+				tkoht.setText("VULKAANIJALAM [EDASI] [TAGASI] SÜGAV ORG JÕEGA \n \r KÜLLUSESARV [VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==-2){
 				taustauuendus(mets);
-				System.out.println("           METS [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
-				System.out.println("SÜGAV ORG JÕEGA [VASAKULE] [PAREMALE] METS");
+				tkoht.setText("METS [EDASI] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR \n \r  "
+						+ "SÜGAV ORG JÕEGA [VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==-1){
 				taustauuendus(org_p);
-				System.out.println("   METS [ÜLES] [ALLA] METS ");
-				System.out.println(" ORUNÕLV[VASAKULE] [PAREMALE] METS");
+				tkoht.setText("METS [EDASI] [ALLA] METS \n \r "
+				+"System.out.println ORUNÕLV[VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==2){
 				taustauuendus(jalam);
-				System.out.println(" EI SAA KÄIA, SIIN ON AREENI PIIR[ÜLES] [ALLA] VULKAANIJALAM");
-				System.out.println("                     VULKAANITIPP [VASAKULE] [PAREMALE] METS");
+				tkoht.setText("EI SAA KÄIA, SIIN ON AREENI PIIR[EDASI] [TAGASI] VULKAANIJALAM \n \r"
+				+ "VULKAANITIPP [VASAKULE] [PAREMALE] METS");
 			}
 			else{
 				taustauuendus(jalam);
-				System.out.println(" VULKAANIJALAM[ÜLES] [ALLA] METS");
-				System.out.println(" VULKAANIJALAM[VASAKULE] [PAREMALE] METS");
+				tkoht.setText("VULKAANIJALAM[EDASI] [TAGASI] METS \n \r" 
+					+	" VULKAANIJALAM[VASAKULE] [PAREMALE] METS");
 			}
 		}
 		else if (h==2){
 			if (v==-2){
 				taustauuendus(mets);
-				System.out.println(" METS[ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
-				System.out.println(" METS[VASAKULE] [PAREMALE] EI SAA KÄIA, SIIN ON AREENI PIIR");
+				tkoht.setText("METS[EDASI] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR \n \r"
+				+" METS[VASAKULE] [PAREMALE] EI SAA KÄIA, SIIN ON AREENI PIIR");
 			}
 			else if (v==-1){
 				taustauuendus(mets);
-				System.out.println("           METS [ÜLES] [ALLA] METS");
-				System.out.println(" SÜGAV ORG JÕEGA[VASAKULE] [PAREMALE] EI SAA KÄIA, SIIN ON AREENI PIIR");
+				tkoht.setText("           METS [EDASI] [TAGASI] METS \n \r"
+				+" SÜGAV ORG JÕEGA[VASAKULE] [PAREMALE] EI SAA K?IA, SIIN ON AREENI PIIR");
 			}
 			else if(v==0){
 				taustauuendus(mets);
-				System.out.println("METS [ÜLES] [ALLA] METS");
-				System.out.println("METS [VASAKULE] [PAREMALE] EI SAA KÄIA, SIIN ON AREENI PIIR");
+				tkoht.setText("METS [?LES] [ALLA] METS \n \r"
+				+"METS [VASAKULE] [PAREMALE] EI SAA K?IA, SIIN ON AREENI PIIR");
 			}
 			else if (v==1){
 				taustauuendus(mets);
-				System.out.println("         METS [ÜLES] [ALLA] METS");
-				System.out.println(" VULKAANIJALAM[VASAKULE] [PAREMALE] EI SAA KÄIA, SIIN ON AREENI PIIR");
+				tkoht.setText("METS [?LES] [ALLA] METS");
+				System.out.println(" VULKAANIJALAM[VASAKULE] [PAREMALE] EI SAA K?IA, SIIN ON AREENI PIIR");
 			}
 			else{
 				taustauuendus(mets);
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] METS");
-				System.out.println("                   VULKAANIJALAM [VASAKULE] [PAREMALE] EI SAA KÄIA, SIIN ON AREENI PIIR");
+				tkoht.setText("EI SAA K?IA, SIIN ON AREENI PIIR [?LES] [ALLA] METS \n \r"
+				+ "VULKAANIJALAM [VASAKULE] [PAREMALE] EI SAA K?IA, SIIN ON AREENI PIIR");
 			}
 		}
 		else if (h==0){
-			if(v==-2){
-				taustauuendus(org_p);
-				System.out.println("ORUNÕLV [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
-				System.out.println("VEEKOGU [VASAKULE] [PAREMALE] METS");
+			if(v==-2){taustauuendus(org_p);
+				
+				tkoht.setText("ORUN?LV [?LES] [ALLA] EI SAA K?IA, SIIN ON AREENI PIIR \n \r"
+				+"VEEKOGU [VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==-1){
 				taustauuendus(org_n);
-				System.out.println(" KÜLLUSESARV [ÜLES] [ALLA] SÜGAV ORG JÕEGA");
-				System.out.println("      VEEKOGU[VASAKULE] [PAREMALE]SÜGAV ORG JÕEGA ");
+
+				tkoht.setText(" K?LLUSESARV [?LES] [ALLA] S?GAV ORG J?EGA \n \r"
+						+ "      VEEKOGU[VASAKULE] [PAREMALE]S?GAV ORG J?EGA ");
 			}
 			else if (v==0){
 				taustauuendus(cornucopia);
-				System.out.println("VULKAANIJALAM [ÜLES] [ALLA] ORUNÕLV");
-				System.out.println("      VEEKOGU [VASAKULE] [PAREMALE] METS");
+		
+				tkoht.setText("VULKAANIJALAM [?LES] [ALLA] ORUN?LV\n \r"
+						+ "      VEEKOGU [VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==1){
 				taustauuendus(jalam);
-				System.out.println(" VULKAANITIPP [ÜLES] [ALLA] KÜLLUSESARV");
-				System.out.println("VULKAANIJALAM [VASAKULE] [PAREMALE] VULKAANIJALAM");
+			
+				tkoht.setText(" VULKAANITIPP [?LES] [ALLA] K?LLUSESARV \n \r"
+						+ "VULKAANIJALAM [VASAKULE] [PAREMALE] VULKAANIJALAM");
 			}
-			else{
-				taustauuendus(tipp);
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] VULKAANIJALAM");
-				System.out.println("                   VULKAANIJALAM [VASAKULE] [PAREMALE] VULKAANIJALAM");
+			else{taustauuendus(tipp);
+		
+				tkoht.setText("EI SAA K?IA, SIIN ON AREENI PIIR [?LES] [ALLA] VULKAANIJALAM \n \r"
+						+"                   VULKAANIJALAM [VASAKULE] [PAREMALE] VULKAANIJALAM");
 			}
 		}
 		else if (h==-1){
 			if (v==-2){
 				taustauuendus(org_p);
-				System.out.println("VEEKOGU [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
-				System.out.println("VEEKOGU [VASAKULE] [PAREMALE] SÜGAV ORG JÕEGA");
+		
+				tkoht.setText("VEEKOGU [?LES] [ALLA] EI SAA K?IA, SIIN ON AREENI PIIR \n \r"
+						+"VEEKOGU [VASAKULE] [PAREMALE] S?GAV ORG J?EGA");
 			}
 			else if (v==-1){
 				taustauuendus(veekogu);
-				System.out.println(" VEEKOGU [ÜLES] [ALLA] SÜGAV ORG JÕEGA");
-				System.out.println("POOLSAAR [VASAKULE] [PAREMALE] ORUNÕLV");
+
+				tkoht.setText(" VEEKOGU [?LES] [ALLA] S?GAV ORG J?EGA \n \r"
+						+ "POOLSAAR [VASAKULE] [PAREMALE] ORUN?LV");
 			}
 			else if (v==0){
 				taustauuendus(veekogu);
-				System.out.println("VULKAANINÕLV [ÜLES] [ALLA] VEEKOGU");
-				System.out.println("    POOLSAAR [VASAKULE] [PAREMALE] KÜLLUSESARV");
+
+				tkoht.setText("VULKAANIN?LV [?LES] [ALLA] VEEKOGU\n \r"
+						+ "    POOLSAAR [VASAKULE] [PAREMALE] K?LLUSESARV");
 			}
 			else if (v==1){
 				taustauuendus(jalam);
-				System.out.println("             VULKAANINÕLV [ÜLES] [ALLA] VEEKOGU");
-				System.out.println("TÜHERMAA/KIVISTUNUD LAAVA [VASAKULE] [PAREMALE] VULKAANINÕLV");
+	
+				tkoht.setText("VULKAANINÕLV [EDASI] [TAGASI] VEEKOGU \n \r"
+						+ "TÜHERMAA/KIVISTUNUD LAAVA [VASAKULE] [PAREMALE] VULKAANIN?LV");
 			}
-			else{
-				taustauuendus(jalam);
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] VULKAANINÕLV");
-				System.out.println("       TÜHERMAA/KIVISTUNUD LAAVA [VASAKULE] [PAREMALE] VULKAANITIPP");
+			else{taustauuendus(jalam);
+	
+				tkoht.setText("EI SAA K?IA, SIIN ON AREENI PIIR [EDASI] [ALLA] VULKAANIN?LV \n \r"
+						+ "T?HERMAA/KIVISTUNUD LAAVA [VASAKULE] [PAREMALE] VULKAANITIPP");
 			}
 		}
 		else if(h==-2){
 			if (v ==-2){
 				taustauuendus(veekogu);
-				System.out.println("                        POOLSAAR [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] SÜGAV ORG JÕEGA");
+		
+				tkoht.setText("                        POOLSAAR [?LES] [ALLA] EI SAA K?IA, SIIN ON AREENI PIIR \n \r"
+						+ "EI SAA K?IA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] S?GAV ORG J?EGA");
 			}
 			else if (v == -1){
 				taustauuendus(poolsaar);
-				System.out.println("                        POOLSAAR [ÜLES] [ALLA] VEEKOGU");
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VEEKOGU");
+	
+				tkoht.setText("                        POOLSAAR [?LES] [ALLA] VEEKOGU\n \r"
+						+ "EI SAA K?IA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VEEKOGU");
 			}
 			else if (v == 0){
 				taustauuendus(poolsaar);
-				System.out.println("       TÜHERMAA/KIVISTUNUD LAAVA [ÜLES] [ALLA] POOLSAAR");
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VEEKOGU");
+	
+				tkoht.setText("       T?HERMAA/KIVISTUNUD LAAVA [?LES] [ALLA] POOLSAAR \n \r"
+						+ "EI SAA K?IA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VEEKOGU");
 			}
 			else if (v == 1){
 				taustauuendus(wasteland);
-				System.out.println("       TÜHERMAA/KIVISTUNUD LAAVA [ÜLES] [ALLA] POOLSAAR");
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VULKAANIJALAM");
+
+				tkoht.setText("       T?HERMAA/KIVISTUNUD LAAVA [?LES] [ALLA] POOLSAAR \n \r"
+						+ "EI SAA K?IA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VULKAANIJALAM");
 			}
 			else{
 				taustauuendus(wasteland);
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] TÜHERMAA/KIVISTUNUD LAAVA");
-				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VULKAANINÕLV");
+				
+				tkoht.setText("EI SAA K?IA, SIIN ON AREENI PIIR [?LES] [ALLA] T?HERMAA/KIVISTUNUD LAAVA \n \r"
+						+ "EI SAA K?IA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VULKAANIN?LV");
 			}
 
 		}
@@ -210,86 +231,98 @@ public class Mang extends Application {
 	public void start(Stage primaryStage) {
 		width = primaryStage.getWidth();
 		height = primaryStage.getHeight();
-		piir.setTop(nood);
-		BorderPane piir2 = new BorderPane();
-		TextArea kirjeldusekast = new TextArea();
-		kirjeldusekast.setText(" Kalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \n"
-				+ "böö\n"
-				+ "lol\n"
-				+ "alkjg\n"
-				+ "dlkjhj\n");
-		kirjeldusekast.setPrefRowCount(4);
-		kirjeldusekast.setPrefColumnCount(30);
-		kirjeldusekast.setWrapText(true);
-		kirjeldusekast.setEditable(false);
-		piir2.setCenter(kirjeldusekast);
-		piir2.setBottom(nood);
-		piir.setBottom(piir2);
-		
-		
-		//Nupuvajutamise kuular
-		EventHandler<KeyEvent> keyListener = new EventHandler<KeyEvent>() {
-			public void handle(KeyEvent event) {
-
-				if(event.getCode() == KeyCode.UP) {
-					try {
-						if (v<2){
-							v++;
-						}
-						sammude_kirjeldus();
-					} catch (Exception e) {
-						e.printStackTrace();
+		// Define an event filter
+		// Define an event filter
+		EventHandler <KeyEvent> filter = new EventHandler<KeyEvent>() {
+		    public void handle(KeyEvent event) {
+		    	if (event.getCode().equals(KeyCode.UP)) {
+		        System.out.println("Filtering out event " + event.getEventType()); 
+		        try {
+					if (v<2){
+						v++;
 					}
-					//event.consume();
-				} 
-				else if(event.getCode() == KeyCode.DOWN) {
+					sammude_kirjeldus();
+					event.consume();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		       
+		    	}
+		    	else if (event.getCode().equals(KeyCode.DOWN)) {
 					try {
 						if (v > -2){
 							v--;
 						}
 						sammude_kirjeldus();
+						event.consume();
 				
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					//pole vaja vist
-					//event.consume();
-				} 
-
-				else if (event.getCode() == KeyCode.LEFT) {
-					try {
-						if (h> -2){
-							h--;
+		    	}
+					else if (event.getCode().equals(KeyCode.LEFT)) {
+						try {
+							if (h> -2){
+								h--;
+							}
+							sammude_kirjeldus();
+							event.consume();
+		
 						}
-						sammude_kirjeldus();
-	
-					}
-					catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
+						catch (Exception e) {
+							e.printStackTrace();
 
-				else if (event.getCode()==KeyCode.RIGHT) {
-					try {
-						if (h < 2){
-							h++;
 						}
-						sammude_kirjeldus();
-					}   
-					catch (Exception e) {
-						e.printStackTrace();
 					}
-
-				}
-			}
-		}; //kuulari lõpp
-
-		//stseen, mille küljes kõik muu
+					else if (event.getCode().equals(KeyCode.RIGHT)) {
+						
+							try {
+								if (h < 2){
+									h++;
+								}
+								sammude_kirjeldus();
+								event.consume();
+							}   
+							catch (Exception e) {
+								e.printStackTrace();
+							}
+						
+						
+					}
+		    		
+		    	}
+		    };
+		    
+		//piir.setTop(nood);
+		BorderPane piir2 = new BorderPane();
+		StackPane sp1=new StackPane();
+		TextField vali=new TextField("hylgemola");
+		//väljale lisame eventfiltri
+		vali.addEventFilter(KeyEvent.KEY_PRESSED, filter);
+//		TextArea kirjeldusekast = new TextArea();
+//		kirjeldusekast.setText(" Kalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \n"
+//				+ "b??\n"
+//				+ "lol\n"
+//				+ "alkjg\n"
+//				+ "dlkjhj\n");
+//		kirjeldusekast.setPrefRowCount(4);
+//		kirjeldusekast.setPrefColumnCount(30);
+//		kirjeldusekast.setWrapText(true);
+//		piir2.setCenter(kirjeldusekast);
+		piir.setCenter(vali);
+		//piir2.setBottom(nood);
+		//piir.setBottom(piir2);
+		//stseen, mille k?ljes k?ik muu
 
 		sammude_kirjeldus();
-		juur.getChildren().addAll(canvas, piir);
-		Scene stseen1 = new Scene(juur, 400, 400, Color.WHITE);
-		stseen1.setOnKeyPressed(keyListener);
+		Image image=new Image("application/paber_taust.jpg");
+		Rectangle kast=new Rectangle(0, 400, 400, 200);
+		kast.setFill(new ImagePattern(image, 0, 0, 1,1, true));
+		sp1.getChildren().addAll(kast, tkoht);
+
+		juur.getChildren().addAll(canvas,piir, sp1);
+		Scene stseen1 = new Scene(juur, 400, 550, Color.WHITE);
+		//stseen1.setOnKeyPressed(keyListener);
 		primaryStage.setTitle("Your hunger games");
 
 		//piir.setBottom(tkoht); 

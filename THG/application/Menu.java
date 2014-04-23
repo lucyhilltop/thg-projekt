@@ -130,7 +130,14 @@ public class Menu extends Application  {
 		    	tl.setEffect(null);
 		    }      
 		}
-		  
+		
+		
+		ta.setOnMousePressed(new EventHandler<MouseEvent>(){
+			public void handle(MouseEvent ma){
+				Mang game = new Mang();
+				game.start(primaryStage);
+			}
+		});
 		tl.setOnMousePressed(new EventHandler<MouseEvent>() {
 		    public void handle(MouseEvent me) {
 		    	exitimisel(primaryStage);
