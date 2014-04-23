@@ -48,10 +48,6 @@ public class Mang extends Application {
 	boolean isgameover = false;
 	//tekstiväli
 	
-	Text tkoht= new Text(" kirjeldus"
-			+ "tralalalaa"
-			+ "blballbaba \n"
-			+  " veeeel pikkkem");
 	//ekraani laius ja kõrgus
 	double width = canvas.getWidth();
 	double height = canvas.getHeight();
@@ -127,31 +123,28 @@ public class Mang extends Application {
 			}
 		}
 		else if (h==0){
-			if(v==-2){taustauuendus(org_p);
-				
+			if(v==-2){
+				taustauuendus(org_p);
 				System.out.println("ORUNÕLV [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
 				System.out.println("VEEKOGU [VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==-1){
 				taustauuendus(org_n);
-
 				System.out.println(" KÜLLUSESARV [ÜLES] [ALLA] SÜGAV ORG JÕEGA");
 				System.out.println("      VEEKOGU[VASAKULE] [PAREMALE]SÜGAV ORG JÕEGA ");
 			}
 			else if (v==0){
 				taustauuendus(cornucopia);
-		
 				System.out.println("VULKAANIJALAM [ÜLES] [ALLA] ORUNÕLV");
 				System.out.println("      VEEKOGU [VASAKULE] [PAREMALE] METS");
 			}
 			else if (v==1){
 				taustauuendus(jalam);
-			
 				System.out.println(" VULKAANITIPP [ÜLES] [ALLA] KÜLLUSESARV");
 				System.out.println("VULKAANIJALAM [VASAKULE] [PAREMALE] VULKAANIJALAM");
 			}
-			else{taustauuendus(tipp);
-		
+			else{
+				taustauuendus(tipp);
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] VULKAANIJALAM");
 				System.out.println("                   VULKAANIJALAM [VASAKULE] [PAREMALE] VULKAANIJALAM");
 			}
@@ -159,30 +152,26 @@ public class Mang extends Application {
 		else if (h==-1){
 			if (v==-2){
 				taustauuendus(org_p);
-		
 				System.out.println("VEEKOGU [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
 				System.out.println("VEEKOGU [VASAKULE] [PAREMALE] SÜGAV ORG JÕEGA");
 			}
 			else if (v==-1){
 				taustauuendus(veekogu);
-
 				System.out.println(" VEEKOGU [ÜLES] [ALLA] SÜGAV ORG JÕEGA");
 				System.out.println("POOLSAAR [VASAKULE] [PAREMALE] ORUNÕLV");
 			}
 			else if (v==0){
 				taustauuendus(veekogu);
-
 				System.out.println("VULKAANINÕLV [ÜLES] [ALLA] VEEKOGU");
 				System.out.println("    POOLSAAR [VASAKULE] [PAREMALE] KÜLLUSESARV");
 			}
 			else if (v==1){
 				taustauuendus(jalam);
-	
 				System.out.println("             VULKAANINÕLV [ÜLES] [ALLA] VEEKOGU");
 				System.out.println("TÜHERMAA/KIVISTUNUD LAAVA [VASAKULE] [PAREMALE] VULKAANINÕLV");
 			}
-			else{taustauuendus(jalam);
-	
+			else{
+				taustauuendus(jalam);
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] VULKAANINÕLV");
 				System.out.println("       TÜHERMAA/KIVISTUNUD LAAVA [VASAKULE] [PAREMALE] VULKAANITIPP");
 			}
@@ -190,31 +179,26 @@ public class Mang extends Application {
 		else if(h==-2){
 			if (v ==-2){
 				taustauuendus(veekogu);
-		
 				System.out.println("                        POOLSAAR [ÜLES] [ALLA] EI SAA KÄIA, SIIN ON AREENI PIIR");
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] SÜGAV ORG JÕEGA");
 			}
 			else if (v == -1){
 				taustauuendus(poolsaar);
-	
 				System.out.println("                        POOLSAAR [ÜLES] [ALLA] VEEKOGU");
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VEEKOGU");
 			}
 			else if (v == 0){
 				taustauuendus(poolsaar);
-	
 				System.out.println("       TÜHERMAA/KIVISTUNUD LAAVA [ÜLES] [ALLA] POOLSAAR");
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VEEKOGU");
 			}
 			else if (v == 1){
 				taustauuendus(wasteland);
-
 				System.out.println("       TÜHERMAA/KIVISTUNUD LAAVA [ÜLES] [ALLA] POOLSAAR");
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VULKAANIJALAM");
 			}
 			else{
 				taustauuendus(wasteland);
-				
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [ÜLES] [ALLA] TÜHERMAA/KIVISTUNUD LAAVA");
 				System.out.println("EI SAA KÄIA, SIIN ON AREENI PIIR [VASAKULE] [PAREMALE] VULKAANINÕLV");
 			}
@@ -279,7 +263,6 @@ public class Mang extends Application {
 					}
 					catch (Exception e) {
 						e.printStackTrace();
-
 					}
 				}
 
@@ -297,7 +280,6 @@ public class Mang extends Application {
 				}
 			}
 		}; //kuulari lõpp
-
 
 		//stseen, mille küljes kõik muu
 
