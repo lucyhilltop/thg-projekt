@@ -221,9 +221,12 @@ public class Mang extends Application {
 		kirjeldusekast.setPrefRowCount(4);
 		kirjeldusekast.setPrefColumnCount(30);
 		kirjeldusekast.setWrapText(true);
+		kirjeldusekast.setEditable(false);
 		piir2.setCenter(kirjeldusekast);
 		piir2.setBottom(nood);
 		piir.setBottom(piir2);
+		
+		
 		//Nupuvajutamise kuular
 		EventHandler<KeyEvent> keyListener = new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
