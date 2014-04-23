@@ -3,18 +3,25 @@ package application;
 
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -22,7 +29,45 @@ import javafx.scene.text.TextBuilder;
 
 public class Menu extends Application  {
 
-	public void start(Stage primaryStage) {
+	private void exitimisel(final Stage pStage){
+		final Stage kusimus = new Stage();
+        // küsimuse ja kahe nupu loomine
+        Label label = new Label("Kas tõesti tahad kinni panna?");
+        Button okButton = new Button("Jah");
+        Button cancelButton = new Button("Ei");
+ 
+            // sündmuse lisamine nupule Jah
+        okButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                kusimus.hide();
+                Platform.exit();
+            }
+        });
+ 
+            // sündmuse lisamine nupule Ei
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                pStage.show();
+                kusimus.hide();
+            }
+         });
+ 
+             // nuppude grupeerimine
+         FlowPane pane = new FlowPane(10, 10);
+         pane.setAlignment(Pos.CENTER);
+         pane.getChildren().addAll(okButton, cancelButton);
+ 
+             // küsimuse ja nuppude gruppi paigutamine
+         VBox vBox = new VBox(10);
+         vBox.setAlignment(Pos.CENTER);
+         vBox.getChildren().addAll(label, pane);
+ 
+              //stseeni loomine ja näitamine
+          Scene stseen2 = new Scene(vBox);
+          kusimus.setScene(stseen2);
+          kusimus.show();
+	}
+	public void start(final Stage primaryStage) {
 		StackPane sp = new StackPane();
 		Group textj=new Group();
 		Group texti=new Group();
@@ -86,6 +131,21 @@ public class Menu extends Application  {
 		    }      
 		}
 		  
+		tl.setOnMousePressed(new EventHandler<MouseEvent>() {
+		    public void handle(MouseEvent me) {
+		    	exitimisel(primaryStage);
+		    }
+		    }
+		);
+	
+			
+		primaryStage.setOnHiding(new EventHandler<WindowEvent>(){
+	        public void handle(WindowEvent event) {
+	        // luuakse teine lava
+	        exitimisel(primaryStage);
+	       }
+	    }); 
+		
 		  Kasitleja kasitleja1 = new Kasitleja();
 		  Kasitleja3 kasitleja3 = new Kasitleja3();
 		  Kasitleja_drop kasitleja2 = new Kasitleja_drop();
@@ -99,8 +159,8 @@ public class Menu extends Application  {
 		Scene scene=new Scene(sp);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
 	}
-
 	public static void main(String[] args) {
 		launch(args);
 	}

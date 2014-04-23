@@ -1,6 +1,8 @@
 package application;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -22,13 +24,14 @@ public class Mang extends Application {
 
 	private final Canvas canvas = new Canvas(400,400);
 
+	//Et mängu alguses oleks õige taust taga
 	public Mang(){
 		GraphicsContext gc = canvas.getGraphicsContext2D();
-		gc.clearRect(0, 0, canvas.getHeight(), canvas.getWidth());
 		gc.drawImage(cornucopia, 0.0, 0.0, canvas.getHeight(),
 				canvas.getWidth());
 	}
 	
+	//seda kasutan hiljem erinevates kohtades taustade muutmiseks. Ala et metsas metsa taust oleks jne.
 	private void taustauuendus(Image img){
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(img, 0.0, 0.0, canvas.getHeight(),
@@ -46,11 +49,13 @@ public class Mang extends Application {
 			+ "tralalalaa"
 			+ "blballbaba \n"
 			+  " veeeel pikkkem");
+	
+	
 	//ekraani laius ja kõrgus
 	double width = canvas.getWidth();
 	double height = canvas.getHeight();
-	int widthc = 400;
-	int heightc= 400;
+	
+	
 	//Taustapildid
 	Image veekogu = new Image("application/veekogu.jpg", width, height, false, true);
 	Image cornucopia = new Image("application/küllusesarv.png", width, height, false, false);
@@ -218,7 +223,10 @@ public class Mang extends Application {
 	}
 
 	public void start(Stage primaryStage) {
-
+		width = primaryStage.getWidth();
+		height = primaryStage.getHeight();
+		
+		
 		//Nupuvajutamise kuular
 		EventHandler<KeyEvent> keyListener = new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
@@ -284,8 +292,6 @@ public class Mang extends Application {
 		juur.getChildren().addAll(canvas, piir);
 		Scene stseen1 = new Scene(juur, 400, 400, Color.WHITE);
 		stseen1.setOnKeyPressed(keyListener);
-		width = stseen1.getWidth();
-		height = stseen1.getHeight();
 		primaryStage.setTitle("Your hunger games");
 
 		piir.setBottom(tkoht); 
