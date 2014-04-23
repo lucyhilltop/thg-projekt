@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -23,6 +24,7 @@ public class Mang extends Application {
 	int h=0;
 
 	private final Canvas canvas = new Canvas(400,400);
+	private Canvas nood = new Canvas(400,325);
 
 	//Et mängu alguses oleks õige taust taga
 	public Mang(){
@@ -45,12 +47,11 @@ public class Mang extends Application {
 
 	boolean isgameover = false;
 	//tekstiväli
+	
 	Text tkoht= new Text(" kirjeldus"
 			+ "tralalalaa"
 			+ "blballbaba \n"
 			+  " veeeel pikkkem");
-	
-	
 	//ekraani laius ja kõrgus
 	double width = canvas.getWidth();
 	double height = canvas.getHeight();
@@ -225,8 +226,20 @@ public class Mang extends Application {
 	public void start(Stage primaryStage) {
 		width = primaryStage.getWidth();
 		height = primaryStage.getHeight();
-		
-		
+		piir.setTop(nood);
+		BorderPane piir2 = new BorderPane();
+		TextArea kirjeldusekast = new TextArea();
+		kirjeldusekast.setText(" Kalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \n"
+				+ "böö\n"
+				+ "lol\n"
+				+ "alkjg\n"
+				+ "dlkjhj\n");
+		kirjeldusekast.setPrefRowCount(4);
+		kirjeldusekast.setPrefColumnCount(30);
+		kirjeldusekast.setWrapText(true);
+		piir2.setCenter(kirjeldusekast);
+		piir2.setBottom(nood);
+		piir.setBottom(piir2);
 		//Nupuvajutamise kuular
 		EventHandler<KeyEvent> keyListener = new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
@@ -294,7 +307,7 @@ public class Mang extends Application {
 		stseen1.setOnKeyPressed(keyListener);
 		primaryStage.setTitle("Your hunger games");
 
-		piir.setBottom(tkoht); 
+		//piir.setBottom(tkoht); 
 		//tkoht.prefHeight(100);
 
 		primaryStage.setScene(stseen1);
