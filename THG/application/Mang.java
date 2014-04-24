@@ -57,13 +57,13 @@ public class Mang extends Application {
 	}
 
 	Mangija mangija = new Mangija("Katniss", 12);
-	static //boolean kas_elus = true;
+	//static boolean kas_elus = true;
 	//tekstiv�li
-	TextField tekstivali=new TextField("   ");
+	static TextField tekstivali=new TextField("   ");
 	//kohe tkoht muutuja alla tegin skoht - syndmuskoht, kus peaksid syndmused jooksma
-		static Text tkoht= new Text(10.0, 400.0, "kirjeldus");
-		static Text skoht=new Text(10.0, 400.0, "mis siin sünnib?");
-		//skoht.setWrappingWidth(390);
+	static Text tkoht= new Text(10.0, 400.0, "kirjeldus");
+	static Text skoht=new Text(10.0, 400.0, "mis siin sünnib?");
+	
 	//ekraani laius ja k�rgus
 	double width = 400;
 	double height = 400;
@@ -249,7 +249,7 @@ public class Mang extends Application {
 						if (v<2){
 							v++;
 						}
-						
+
 						sammude_kirjeldus();
 						mangija.juhtumid();
 						event.consume();
@@ -263,7 +263,7 @@ public class Mang extends Application {
 						if (v > -2){
 							v--;
 						}
-						
+
 						sammude_kirjeldus();
 						mangija.juhtumid();
 						event.consume();
@@ -277,7 +277,7 @@ public class Mang extends Application {
 						if (h> -2){
 							h--;
 						}
-						
+
 						sammude_kirjeldus();
 						mangija.juhtumid();
 						event.consume();
@@ -312,7 +312,7 @@ public class Mang extends Application {
 		//Tekstikasikene
 		StackPane sp1=new StackPane();
 		StackPane sp2 = new StackPane();
-		
+
 		//väljale lisame eventfiltri
 		tekstivali.addEventFilter(KeyEvent.KEY_PRESSED, filter);
 
@@ -320,38 +320,38 @@ public class Mang extends Application {
 
 		//See kast, kuhu info kuvatakse
 		//kõik põhimuutused siin, nimetasin vana kasti ümber ja tegin uue kasti kasts nagu kast syndmus:
-		 //See kast, kuhu info kuvatakse
-				Image image=new Image("application/paber_taust.jpg");
-				Rectangle kastl=new Rectangle(0, 400, 550, 125);
-				kastl.setFill(new ImagePattern(image, 0, 0, 1,1, true));
-				StackPane.setAlignment(tkoht, Pos.CENTER_LEFT);
-				StackPane.setAlignment(skoht, Pos.CENTER_LEFT);
-				Rectangle kasts=new Rectangle(0, 525, 550, 125);
-				kasts.setFill(new ImagePattern(image, 0, 0, 1,1, true));
+		//See kast, kuhu info kuvatakse
+		Image image=new Image("application/paber_taust.jpg");
+		Rectangle kastl=new Rectangle(0, 400, 550, 125);
+		kastl.setFill(new ImagePattern(image, 0, 0, 1,1, true));
+		StackPane.setAlignment(tkoht, Pos.CENTER_LEFT);
+		StackPane.setAlignment(skoht, Pos.CENTER_LEFT);
+		Rectangle kasts=new Rectangle(0, 525, 550, 125);
+		kasts.setFill(new ImagePattern(image, 0, 0, 1,1, true));
 
 
 
-				Pane panec=new Pane();
-				Pane panea=new Pane();
-				Pane paneb=new Pane();
+		Pane panec=new Pane();
+		Pane panea=new Pane();
+		Pane paneb=new Pane();
 
-				panec.getChildren().add(canvas);
-				panea.getChildren().add(sp1);
-				paneb.getChildren().add(sp2);
-				panea.setLayoutX(0);
-				panea.setLayoutY(525);
-				paneb.setLayoutX(0);
-				paneb.setLayoutY(400);
-				piir.setTop(panec);
-				sp1.getChildren().addAll(kastl, tkoht);
-				sp2.getChildren().addAll(kasts, skoht);
-
-
-				tekstivali.setLayoutX(10.0);
-				tekstivali.setLayoutY(652.0);
+		panec.getChildren().add(canvas);
+		panea.getChildren().add(sp1);
+		paneb.getChildren().add(sp2);
+		panea.setLayoutX(0);
+		panea.setLayoutY(525);
+		paneb.setLayoutX(0);
+		paneb.setLayoutY(400);
+		piir.setTop(panec);
+		sp1.getChildren().addAll(kastl, tkoht);
+		sp2.getChildren().addAll(kasts, skoht);
 
 
-				juur.getChildren().addAll(piir, tekstivali, panec, panea, paneb);
+		tekstivali.setLayoutX(10.0);
+		tekstivali.setLayoutY(652.0);
+
+
+		juur.getChildren().addAll(piir, tekstivali, panec, panea, paneb);
 
 
 		Scene stseen1 = new Scene(juur, 380, 676, Color.WHITE);

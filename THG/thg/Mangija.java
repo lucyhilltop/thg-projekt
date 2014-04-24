@@ -27,8 +27,9 @@ public class Mangija {
 		}
 		else{
 			lives -= (int)(Math.random()*100 + 1);
-			if (lives < 0){
+			if (lives < 0|| lives == 0){
 				lives = 0;
+				gameover();
 			}
 		}
 
@@ -38,8 +39,9 @@ public class Mangija {
 
 	public int muudaElusid(int damage){
 		lives -= (int)(Math.random()* (damage * 10) + 1);
-		if (lives < 0){
+		if (lives < 0|| lives == 0){
 			lives = 0;
+			gameover();
 		}
 		skoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
@@ -84,7 +86,12 @@ public class Mangija {
 			Ressurss l = new Ressurss();
 			l.langevari(this);
 		}
-		return lives > 0 && paev != 5;
+		if(lives > 0 && paev != 5){
+		return true;
+		}
+		gameover();
+		return false;	
+		
 	}
 
 

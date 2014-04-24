@@ -18,12 +18,14 @@ public class Vastane {
 	public void voitlus(final Mangija a){
 		EventHandler<KeyEvent> filter2 = new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
+				skoht.setWrappingWidth(390);
 				if (a.getLives() < 1){
 					return;
 				}
 
 				else if (event.getCode().equals(KeyCode.SPACE)) {
 					try {
+						
 						try {
 							TimeUnit.MILLISECONDS.sleep(700);
 						} catch (InterruptedException e) {

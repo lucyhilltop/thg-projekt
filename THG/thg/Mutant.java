@@ -22,6 +22,7 @@ public class Mutant extends Vastane{
 
 	public void voitlus_mutandiga (Mangija a) throws InterruptedException{
 		//final Stage kusimus = new Stage();
+		skoht.setWrappingWidth(390);
 		skoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja kole mutant. Mida teed? \n"
 				+ "[Võitlemiseks vajuta [TÜHIK], põgenemiseks [ENTER]]");
 		/*Button fight = new Button("FIGHT");

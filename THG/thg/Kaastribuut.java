@@ -17,6 +17,7 @@ public class Kaastribuut extends Vastane{
 	}
 
 	public void võitlus_tribuudiga (Mangija a) throws InterruptedException{
+		skoht.setWrappingWidth(390);
 		skoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja Sinu kaasvõistleja. Mida teed? \n"
 				+ "[Võitlemiseks vajuta [TÜHIK], põgenemiseks [ENTER]]");
 		voitlus(a);
