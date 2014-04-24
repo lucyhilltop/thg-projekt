@@ -1,6 +1,5 @@
 package thg;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import application.Mang;
 public class Mangija {
 
@@ -32,18 +31,15 @@ public class Mangija {
 				gameover();
 			}
 		}
-
-		skoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 	}
 
 	public int muudaElusid(int damage){
 		lives -= (int)(Math.random()* (damage * 10) + 1);
-		if (lives < 0|| lives == 0){
+		if (lives < 0 || lives == 0){
 			lives = 0;
 			gameover();
 		}
-		skoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 
 	}

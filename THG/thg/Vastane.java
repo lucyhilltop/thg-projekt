@@ -2,7 +2,6 @@ package thg;
 
 import java.util.concurrent.TimeUnit;
 
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -65,7 +64,7 @@ public class Vastane {
 				else if (event.getCode().equals(KeyCode.ENTER)) {
 					try {
 						skoht.setText("Jooksed elu eest peitu. Võid pääseda terve nahaga, kuid vastane võib sind ka selja tagant rünnata.\n \r"
-								+ a.muudaElusid(damage));
+								+ "Elusid on Sul nüüd: "+a.muudaElusid(damage));
 						// Võid pääseda terve nahaga, kuid vastane võib sind ka jälitada
 						//a.muudaElusid(damage);
 						event.consume();

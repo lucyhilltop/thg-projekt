@@ -1,14 +1,4 @@
 package thg;
-
-import application.Mang;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
-
 public class Mutant extends Vastane{
 	public Mutant() {
 		elud = 120;

@@ -1,9 +1,5 @@
 package thg;
 
-import javafx.event.EventType;
-import javafx.scene.input.InputEvent;
-import javafx.scene.input.KeyEvent;
-
 public class Kaastribuut extends Vastane{
 
 	public Kaastribuut(int elud, int damage) {
