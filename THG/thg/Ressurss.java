@@ -16,7 +16,7 @@ public class Ressurss{
 		tkoht.setText("Ühel põõsal kasvavad isuäratavad valged marjad. Sa pole selliseid varem näinud ja see ei tundu olevat nende loomulik kasvukoht.\n "
 				+ "Proovid marju -vajuta [S].\n Lähed edasi - vajuta [E].\n ");
 
-		Scanner scan=new Scanner(System.in);
+		/*		Scanner scan=new Scanner(System.in);
 		String sisend=scan.nextLine();
 
 		if (sisend.equals("s")){
@@ -46,10 +46,10 @@ public class Ressurss{
 		else{
 			tkoht.setText("Oioi, vajutasid midagi valesti, proovi uuesti");
 			metsamari(a);
-		}
+		}*/
 
 	}
-//Väiksed langevarjukesed, mida sponsorid enda lemmikutele saadavad, et neid mängudes aidata
+	//Väiksed langevarjukesed, mida sponsorid enda lemmikutele saadavad, et neid mängudes aidata
 	public void langevari(Mangija a) throws InterruptedException {
 		Random randomno=new Random();
 		String [] valik = {"energiajook", "pakk tuletikke", "nuga"};
@@ -59,7 +59,7 @@ public class Ressurss{
 		TimeUnit.MILLISECONDS.sleep(700);
 		a.muudaElusid("+");
 	}
-//Huvitav meetod, kuna vulkaan on mängukirjelduses iseenesest olemas, peab olema ka võimalus selle purskamiseks 
+	//Huvitav meetod, kuna vulkaan on mängukirjelduses iseenesest olemas, peab olema ka võimalus selle purskamiseks 
 	public void vulkaan(){
 		tkoht.setText("Sa kuuled selja tagant tohutult valju plahvatust.");
 		try{

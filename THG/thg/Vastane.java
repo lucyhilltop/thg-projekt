@@ -18,7 +18,7 @@ public class Vastane {
 		if (a.getLives() < 1){
 			return;
 		}
-		
+
 		else if (sisend.equals("s")) {
 			try {
 				TimeUnit.MILLISECONDS.sleep(700);
@@ -59,7 +59,7 @@ public class Vastane {
 			a.muudaElusid(damage);
 			return;
 		}
-		
+
 		else{
 			tkoht.setText("Oioi, vajutasid midagi valesti, proovi uuesti");
 			voitlus(a);

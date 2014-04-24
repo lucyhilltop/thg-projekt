@@ -6,7 +6,7 @@ public class Kaastribuut extends Vastane{
 		this.elud = elud;
 		this.damage = damage;
 	}
-	
+
 	public Kaastribuut() {
 		this.elud = 80;
 		this.damage = 6;

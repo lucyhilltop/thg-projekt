@@ -1,13 +1,14 @@
 package thg;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import application.Mang;
 public class Mangija {
-	
+
 	int lives;
 	String nimi;
 	int piirkond;
 	int paev;
-	
+
 	Text tkoht = Mang.getTkoht();
 	public Mangija(String nimi, int piirkond) {
 		this.lives = 100;
@@ -15,8 +16,8 @@ public class Mangija {
 		this.piirkond = piirkond;
 		paev = 0;
 	}
-	
-//Elude maha (ja juurdelisamise) meetodid
+
+	//Elude maha (ja juurdelisamise) meetodid
 	public int muudaElusid(String a){
 		if (a=="+"){
 			lives += (int)(Math.random()*50 +1);
@@ -30,11 +31,11 @@ public class Mangija {
 				lives = 0;
 			}
 		}
-		
+
 		tkoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 	}
-	
+
 	public int muudaElusid(int damage){
 		lives -= (int)(Math.random()* (damage * 10) + 1);
 		if (lives < 0){
@@ -42,9 +43,9 @@ public class Mangija {
 		}
 		tkoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
-		
+
 	}
-	
+
 	//Mängu lõpu kirjeldused
 	public void gameover(){
 		if (lives < 1)
@@ -52,12 +53,12 @@ public class Mangija {
 		else
 			tkoht.setText("JESS!! SINA oledki uusim Näljamängude võitja!");
 	}
-		
+
 	//boolean, et teaks, kas mäng on läbi või mitte. Aga see meetod genereerib siis randomly erinevaid juhtumeid, mida mängija läbida saab.
 	public boolean juhtumid() throws InterruptedException{
 		int juhtum = (int)(Math.random()*6+1);
 		int ebaõnn = (int)(Math.random()*100 +1);
-		
+
 		if (ebaõnn == 13){
 			Ressurss v = new Ressurss();
 			v.vulkaan();
@@ -65,7 +66,7 @@ public class Mangija {
 		}
 		else if (juhtum == 1){
 			Mutant m = new Mutant();
-			m.võitlus_mutandiga(this);
+			m.voitlus_mutandiga(this);
 		}
 		else if (juhtum == 2){
 			Ressurss r = new Ressurss();
@@ -85,9 +86,9 @@ public class Mangija {
 		}
 		return lives > 0 && paev != 5;
 	}
-	
-		
-	
+
+
+
 	int getLives() {
 		return lives;
 	}

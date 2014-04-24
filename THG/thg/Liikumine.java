@@ -42,7 +42,7 @@ public class Liikumine {
 			liikumine();
 		}
 	}
-//Kirjeldab iga sammu kohal, kuhu sa edasi minna saad
+	//Kirjeldab iga sammu kohal, kuhu sa edasi minna saad
 	public void sammude_kirjeldus(){
 		System.out.println("LIIGU EDASI");
 		if (h==1){

@@ -14,8 +14,10 @@ public class Sissejuhatus extends Mang{
 		Mangija mangija = new Mangija(nimi, piirkond);
 		boolean kas_elus = true;
 		Liikumine kaimine = new Liikumine();
-	/*	// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
-		
+
+
+		/*	// Tekst tuleks ilmselt pigem kolmeks eraldi failiks teha.
+
 		String esimene_pool = "Teretulemast mängima meie väikest projekti.\r\n"
 				+ "Liikuda erinevates suundades saad nooltega (kusjuures ^ on põhi, > ida jne)\r\n"
 				+ "\r\n" + "Now.. to why you, ";
@@ -26,7 +28,7 @@ public class Sissejuhatus extends Mang{
 		String keskmine_osa = ", are here today. The 73rd Hunger games are about to begin.\r\n"
 				+ "And Your name was reaped from the ";
 		if(keyEvent.getCode() == KeyCode.ENTER){
-			
+
 		tkoht.setText(keskmine_osa + piirkond);
 		String lopp = "'th district. Now how does that make you feel? \n"
 				+ "Oh, enough about that. \n"
@@ -60,7 +62,7 @@ tkoht.setText(lopp);
 			}
 		}
 		else
-		mangija.gameover();
+			mangija.gameover();
 
 	}
 
