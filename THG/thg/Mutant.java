@@ -1,7 +1,7 @@
 package thg;
 
-public class Mutant extends Vastane{
 
+public class Mutant extends Vastane{
     public Mutant() {
     	elud = 120;
     	damage = 8;
@@ -12,9 +12,9 @@ public class Mutant extends Vastane{
 		this.damage = damage;
 	}
     
-	public void võitlus_mutandiga (Mangija a){
+	public void võitlus_mutandiga (Mangija a) throws InterruptedException{
 		
-		System.out.println("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja kole mutant. Mida teed? \n"
+		tkoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja kole mutant. Mida teed? \n"
 				+ "[Võitlemiseks vajuta [S], põgenemiseks [E]]");
 		voitlus(a);
 	}

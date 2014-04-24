@@ -12,8 +12,8 @@ public class Kaastribuut extends Vastane{
 		this.damage = 6;
 	}
 
-	public void võitlus_tribuudiga (Mangija a){
-		System.out.println("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja Sinu kaasvõistleja. Mida teed? \n"
+	public void võitlus_tribuudiga (Mangija a) throws InterruptedException{
+		tkoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja Sinu kaasvõistleja. Mida teed? \n"
 				+ "[Võitlemiseks vajuta [S], põgenemiseks [E]]");
 		voitlus(a);
 	}

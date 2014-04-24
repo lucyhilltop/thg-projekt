@@ -134,6 +134,7 @@ public class Menu extends Application  {
 		
 		ta.setOnMousePressed(new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent ma){
+				
 				Mang game = new Mang();
 				game.start(primaryStage);
 			}

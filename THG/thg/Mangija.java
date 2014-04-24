@@ -1,5 +1,6 @@
 package thg;
-
+import javafx.scene.text.Text;
+import application.Mang;
 public class Mangija {
 	
 	int lives;
@@ -7,6 +8,7 @@ public class Mangija {
 	int piirkond;
 	int paev;
 	
+	Text tkoht = Mang.getTkoht();
 	public Mangija(String nimi, int piirkond) {
 		this.lives = 100;
 		this.nimi = nimi;
@@ -29,7 +31,7 @@ public class Mangija {
 			}
 		}
 		
-		System.out.println("Elusid on Sul nüüd: " + lives);
+		tkoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 	}
 	
@@ -38,7 +40,7 @@ public class Mangija {
 		if (lives < 0){
 			lives = 0;
 		}
-		System.out.println("Elusid on Sul nüüd: " + lives);
+		tkoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 		
 	}
@@ -46,13 +48,13 @@ public class Mangija {
 	//Mängu lõpu kirjeldused
 	public void gameover(){
 		if (lives < 1)
-			System.out.println("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
+			tkoht.setText("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
 		else
-			System.out.println("JESS!! SINA oledki uusim Näljamängude võitja!");
+			tkoht.setText("JESS!! SINA oledki uusim Näljamängude võitja!");
 	}
 		
 	//boolean, et teaks, kas mäng on läbi või mitte. Aga see meetod genereerib siis randomly erinevaid juhtumeid, mida mängija läbida saab.
-	public boolean juhtumid(){
+	public boolean juhtumid() throws InterruptedException{
 		int juhtum = (int)(Math.random()*6+1);
 		int ebaõnn = (int)(Math.random()*100 +1);
 		
@@ -74,7 +76,7 @@ public class Mangija {
 			k.võitlus_tribuudiga(this);
 		}
 		else if (juhtum == 4){
-			System.out.println("Sul õnnestus end hoolikalt varjates päev üle elada..");
+			tkoht.setText("Sul õnnestus end hoolikalt varjates päev üle elada..");
 			paev ++;
 		}
 		else{
