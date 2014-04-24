@@ -57,10 +57,13 @@ public class Mang extends Application {
 	}
 
 	Mangija mangija = new Mangija("Katniss", 12);
-	//boolean kas_elus = true;
+	static //boolean kas_elus = true;
 	//tekstiv�li
-
-	static Text tkoht= new Text(10.0, 400.0, "kirjeldus");
+	TextField tekstivali=new TextField("   ");
+	//kohe tkoht muutuja alla tegin skoht - syndmuskoht, kus peaksid syndmused jooksma
+		static Text tkoht= new Text(10.0, 400.0, "kirjeldus");
+		static Text skoht=new Text(10.0, 400.0, "mis siin sünnib?");
+		//skoht.setWrappingWidth(390);
 	//ekraani laius ja k�rgus
 	double width = 400;
 	double height = 400;
@@ -308,32 +311,50 @@ public class Mang extends Application {
 
 		//Tekstikasikene
 		StackPane sp1=new StackPane();
-		TextField tekstivali=new TextField("   ");
+		StackPane sp2 = new StackPane();
+		
 		//väljale lisame eventfiltri
 		tekstivali.addEventFilter(KeyEvent.KEY_PRESSED, filter);
 
 		sammude_kirjeldus();
 
 		//See kast, kuhu info kuvatakse
-		Image image=new Image("application/paber_taust.jpg");
-		Rectangle kast=new Rectangle(0, 400, 550, 125);
-		kast.setFill(new ImagePattern(image, 0, 0, 1,1, true));
-		StackPane.setAlignment(tkoht, Pos.CENTER_LEFT);
-
-		sp1.getChildren().addAll(kast, tkoht);
-
-		Pane panec=new Pane();
-		panec.getChildren().add(canvas);
-		piir.setTop(panec);
-		piir.setBottom(sp1);
-
-		tekstivali.setLayoutX(10.0);
-		tekstivali.setLayoutY(527.0);
-
-		juur.getChildren().addAll(piir, panec, tekstivali);
+		//kõik põhimuutused siin, nimetasin vana kasti ümber ja tegin uue kasti kasts nagu kast syndmus:
+		 //See kast, kuhu info kuvatakse
+				Image image=new Image("application/paber_taust.jpg");
+				Rectangle kastl=new Rectangle(0, 400, 550, 125);
+				kastl.setFill(new ImagePattern(image, 0, 0, 1,1, true));
+				StackPane.setAlignment(tkoht, Pos.CENTER_LEFT);
+				StackPane.setAlignment(skoht, Pos.CENTER_LEFT);
+				Rectangle kasts=new Rectangle(0, 525, 550, 125);
+				kasts.setFill(new ImagePattern(image, 0, 0, 1,1, true));
 
 
-		Scene stseen1 = new Scene(juur, 380, 550, Color.WHITE);
+
+				Pane panec=new Pane();
+				Pane panea=new Pane();
+				Pane paneb=new Pane();
+
+				panec.getChildren().add(canvas);
+				panea.getChildren().add(sp1);
+				paneb.getChildren().add(sp2);
+				panea.setLayoutX(0);
+				panea.setLayoutY(525);
+				paneb.setLayoutX(0);
+				paneb.setLayoutY(400);
+				piir.setTop(panec);
+				sp1.getChildren().addAll(kastl, tkoht);
+				sp2.getChildren().addAll(kasts, skoht);
+
+
+				tekstivali.setLayoutX(10.0);
+				tekstivali.setLayoutY(652.0);
+
+
+				juur.getChildren().addAll(piir, tekstivali, panec, panea, paneb);
+
+
+		Scene stseen1 = new Scene(juur, 380, 676, Color.WHITE);
 
 		primaryStage.setTitle("Your hunger games");
 
@@ -353,11 +374,14 @@ public class Mang extends Application {
 		launch(args);
 	}
 
-	public static Text getTkoht() {
-		return tkoht;
+	public static TextField getTekstivali(){
+		return tekstivali;
+	}
+	public static Text getSkoht() {
+		return skoht;
 	}
 
-	public void setTkoht(Text tkoht) {
-		this.tkoht = tkoht;
+	public void setTkoht(Text skoht) {
+		this.skoht = skoht;
 	}
 }

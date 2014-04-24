@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -20,9 +21,9 @@ public class Mutant extends Vastane{
 	}
 
 	public void voitlus_mutandiga (Mangija a) throws InterruptedException{
-		final Stage kusimus = new Stage();
-		Label label = new Label("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja kole mutant. Mida teed? \n"
-				+ "[Võitlemiseks vajuta [FIGHT], põgenemiseks [RUN]]");
+		//final Stage kusimus = new Stage();
+		skoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja kole mutant. Mida teed? \n"
+				+ "[Võitlemiseks vajuta [TÜHIK], põgenemiseks [ENTER]]");
 		/*Button fight = new Button("FIGHT");
 		Button run = new Button("RUN");
 		run.setOnAction(new EventHandler<ActionEvent>() {

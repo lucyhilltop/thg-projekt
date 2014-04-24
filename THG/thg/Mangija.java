@@ -9,7 +9,7 @@ public class Mangija {
 	int piirkond;
 	int paev;
 
-	Text tkoht = Mang.getTkoht();
+	Text skoht = Mang.getSkoht();
 	public Mangija(String nimi, int piirkond) {
 		this.lives = 100;
 		this.nimi = nimi;
@@ -32,7 +32,7 @@ public class Mangija {
 			}
 		}
 
-		tkoht.setText("Elusid on Sul nüüd: " + lives);
+		skoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 	}
 
@@ -41,7 +41,7 @@ public class Mangija {
 		if (lives < 0){
 			lives = 0;
 		}
-		tkoht.setText("Elusid on Sul nüüd: " + lives);
+		skoht.setText("Elusid on Sul nüüd: " + lives);
 		return lives;
 
 	}
@@ -49,9 +49,9 @@ public class Mangija {
 	//Mängu lõpu kirjeldused
 	public void gameover(){
 		if (lives < 1)
-			tkoht.setText("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
+			skoht.setText("Kahjuks kõlas kahuripauk ning sinust ei saanud järgmist Näljamängude võitjat...");
 		else
-			tkoht.setText("JESS!! SINA oledki uusim Näljamängude võitja!");
+			skoht.setText("JESS!! SINA oledki uusim Näljamängude võitja!");
 	}
 
 	//boolean, et teaks, kas mäng on läbi või mitte. Aga see meetod genereerib siis randomly erinevaid juhtumeid, mida mängija läbida saab.
@@ -77,7 +77,7 @@ public class Mangija {
 			k.võitlus_tribuudiga(this);
 		}
 		else if (juhtum == 4){
-			tkoht.setText("Sul õnnestus end hoolikalt varjates päev üle elada..");
+			skoht.setText("Sul õnnestus end hoolikalt varjates päev üle elada..");
 			paev ++;
 		}
 		else{

@@ -1,5 +1,9 @@
 package thg;
 
+import javafx.event.EventType;
+import javafx.scene.input.InputEvent;
+import javafx.scene.input.KeyEvent;
+
 public class Kaastribuut extends Vastane{
 
 	public Kaastribuut(int elud, int damage) {
@@ -13,8 +17,8 @@ public class Kaastribuut extends Vastane{
 	}
 
 	public void võitlus_tribuudiga (Mangija a) throws InterruptedException{
-		tkoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja Sinu kaasvõistleja. Mida teed? \n"
-				+ "[Võitlemiseks vajuta [S], põgenemiseks [E]]");
+		skoht.setText("Oi-oi, kuuled liikumist ja eikusagilt ilmub välja Sinu kaasvõistleja. Mida teed? \n"
+				+ "[Võitlemiseks vajuta [TÜHIK], põgenemiseks [ENTER]]");
 		voitlus(a);
 	}
 }
